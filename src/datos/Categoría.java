@@ -18,6 +18,10 @@ public class Categoría {
         this.nombre = nombre;
     }
     
+    public Categoría(int ID) {
+        this.id = ID;
+    }
+    
     public int getID() {
         return id;
     }

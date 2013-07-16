@@ -22,7 +22,7 @@ public class ListaCategorias extends Lista {
     @Override
     public boolean agregar(Object obj) {
         Categoría p = (Categoría)obj;
-        p.setId( getCantidad()+1);
+        p.setID( getCantidad()+1);
         return super.agregar(p);
     }
 
@@ -41,8 +41,11 @@ public class ListaCategorias extends Lista {
     }
 
      @Override
-    public boolean eliminar(Object obj) {
-        return false;
+    public boolean eliminar(Object obj){
+        
+        boolean res =  ( obj instanceof Categoría ? super.eliminar(obj) : false) ;
+        return res;        
+
     }
     
     
