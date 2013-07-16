@@ -54,7 +54,7 @@ public class ListaItemExamen extends Lista{
     
     /**
      * supone que recibe un item de examen debidamente modificado, donde lo 
-     * unico que permite cambio es la valoracion
+     * unico que permite cambio es la valoración
      * @param obj: ItemExamen
      * @return  true/false si la modificacion tuvo efecto
      */
