@@ -4,15 +4,13 @@
  */
 package interfaz;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import negocio.cargador.Cargador;
 import negocio.ui.UIGenExa;
+
+
 
 /**
  *
@@ -27,7 +25,9 @@ public class FrGenExa extends javax.swing.JFrame {
     public FrGenExa() {
         initComponents();
         ui = new UIGenExa(this);
-        Cargador.cargarDificultad(cbDificultad);
+        Cargador.cargarTipoPregunta(cbTipoPregunta);
+        this.setLocationRelativeTo(null);
+        Cargador.cargarPreguntas(this.tbPreguntas, ui.getListaPreguntas());
     }
 
     /**
@@ -41,148 +41,33 @@ public class FrGenExa extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        lblCodigo = new javax.swing.JLabel();
-        lblEnunciado = new javax.swing.JLabel();
-        lblDificultad = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
-        btnConsultar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TAEnunciado = new javax.swing.JTextArea();
-        lblTipoPregunta = new javax.swing.JLabel();
-        cbTipoPregunta = new javax.swing.JComboBox();
-        cbDificultad = new javax.swing.JComboBox();
-        chkActiva = new javax.swing.JCheckBox();
-        btnAgregar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
-        btnDesactivar = new javax.swing.JButton();
-        lblMensaje = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbPreguntas = new javax.swing.JTable();
+        btnConsultar = new javax.swing.JButton();
+        lblCodigo = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        btnAgregar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        cbTipoPregunta = new javax.swing.JComboBox();
+        lblTipoPregunta = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("GenExa");
+        setBounds(new java.awt.Rectangle(0, 0, 685, 530));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 685, 530));
+        setMaximumSize(new java.awt.Dimension(685, 530));
+        setResizable(false);
+        setType(java.awt.Window.Type.UTILITY);
 
-        lblCodigo.setText("ID");
-
-        lblEnunciado.setText("ENUNCIADO");
-
-        lblDificultad.setText("GRADO DE DIFICULTAD");
-
-        btnConsultar.setText("Consultar");
-        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarActionPerformed(evt);
-            }
-        });
-
-        TAEnunciado.setColumns(20);
-        TAEnunciado.setRows(5);
-        jScrollPane1.setViewportView(TAEnunciado);
-
-        lblTipoPregunta.setText("Tipo Pregunta");
-
-        cbTipoPregunta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Desarrollo", "Selección Unica", "Falso/Verdadero" }));
-
-        cbDificultad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Alta", "Media", "Baja" }));
-
-        chkActiva.setText("ACTIVA?");
-        chkActiva.setEnabled(false);
-
-        btnAgregar.setText("Agregar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
-
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
-            }
-        });
-
-        btnDesactivar.setText("Desactivar");
-        btnDesactivar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDesactivarActionPerformed(evt);
-            }
-        });
-
-        lblMensaje.setFont(new java.awt.Font("Tahoma", 2, 18));
-        lblMensaje.setForeground(new java.awt.Color(153, 0, 51));
-        lblMensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(lblCodigo)
-                        .addGap(59, 59, 59)
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnConsultar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
-                        .addComponent(lblTipoPregunta)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbTipoPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblEnunciado)
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblDificultad)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 353, Short.MAX_VALUE)
-                        .addComponent(chkActiva))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAgregar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnModificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 390, Short.MAX_VALUE)
-                        .addComponent(btnDesactivar))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigo)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConsultar)
-                    .addComponent(cbTipoPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTipoPregunta))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEnunciado)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDificultad)
-                    .addComponent(cbDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkActiva))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar)
-                    .addComponent(btnModificar)
-                    .addComponent(btnDesactivar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7))
-        );
+        jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
+        jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(685, 530));
 
         tbPreguntas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -199,42 +84,126 @@ public class FrGenExa extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tbPreguntas);
 
+        btnConsultar.setBackground(new java.awt.Color(204, 204, 0));
+        btnConsultar.setText("Consultar ID");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+
+        lblCodigo.setText("ID");
+
+        btnAgregar.setBackground(new java.awt.Color(0, 153, 0));
+        btnAgregar.setText("Agregar Nueva");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+
+        btnModificar.setBackground(new java.awt.Color(0, 153, 153));
+        btnModificar.setText("Modificar Seleccionada");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+
+        cbTipoPregunta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbTipoPregunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTipoPreguntaActionPerformed(evt);
+            }
+        });
+
+        lblTipoPregunta.setText("Tipo de Pregunta");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                        .addComponent(jScrollPane2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblCodigo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblTipoPregunta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbTipoPregunta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnModificar)
+                    .addComponent(btnConsultar)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCodigo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregar)
+                    .addComponent(cbTipoPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTipoPregunta))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Preguntas", jPanel1);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 677, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 499, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Exàmenes", jPanel2);
+        jTabbedPane1.addTab("Exámenes", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -242,58 +211,86 @@ public class FrGenExa extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(342, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        ui.consultarPregunta(this);
-    }//GEN-LAST:event_btnConsultarActionPerformed
-
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        ui.agregarPregunta(this);
-    }//GEN-LAST:event_btnAgregarActionPerformed
-
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        ui.modificarPregunta(this);
+
+        String tipo;
+        int selected;
+        int cases = 0;
+        int ID;
+        
+        selected = this.tbPreguntas.getSelectedRow();
+       //Escoge el tipo de Pregunta
+       if(selected >= 0){
+            tipo = this.tbPreguntas.getValueAt(selected, 1).toString();
+            ID = Integer.parseInt(this.tbPreguntas.getValueAt(selected, 2).toString());
+
+            if( tipo.equals("datos.Desarrollo") ){
+                cases = 0;
+            }else{
+                if( tipo.equals("datos.VerdaderoFalso") ){
+                    cases = 1;
+                }else{
+                    if( tipo.equals("datos.SelecciónÚnica") ){
+                        cases = 2;
+                    }
+                }
+           }
+                
+            //Llama al cargador correspondiente
+            switch(cases){
+                case 0:
+                break;
+                case 1: DiPreguntaVF PVF = new DiPreguntaVF(this, true, ui, false);
+                        Cargador.cargarPreguntas(PVF, ui.consultarPregunta(ID));
+                        PVF.setVisible(true);
+                break;
+            }
+        }
+        
+        Cargador.cargarPreguntas(this.tbPreguntas, ui.getListaPreguntas());
     }//GEN-LAST:event_btnModificarActionPerformed
 
-    private void btnDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesactivarActionPerformed
-        ui.desactivar(this);
-    }//GEN-LAST:event_btnDesactivarActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        int tipoPregunta = this.cbTipoPregunta.getSelectedIndex();
+        
+        switch(tipoPregunta){
+            case 0:
+            break;
+            case 1: DiPreguntaVF PVF = new DiPreguntaVF(this, true, ui, true);
+                    PVF.setVisible(true);
+            break;
+        }
+        
+        Cargador.cargarPreguntas(this.tbPreguntas, ui.getListaPreguntas());
+        
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
-    public JTextArea getTAEnunciado() {
-        return TAEnunciado;
-    }
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+            int ID = Integer.parseInt(this.getTxtId().getText());
+            DiPreguntaVF PVF = new DiPreguntaVF(this, true, ui, false);
+            Cargador.cargarPreguntas(PVF, ui.consultarPregunta(ID));
+            PVF.setVisible(true);
+            
+            Cargador.cargarPreguntas(this.tbPreguntas, ui.getListaPreguntas());
+    }//GEN-LAST:event_btnConsultarActionPerformed
 
-    public void setTAEnunciado(JTextArea TAEnunciado) {
-        this.TAEnunciado = TAEnunciado;
-    }
-
-    public JButton getBtnDesactivar() {
-        return btnDesactivar;
-    }
-
-    public void setBtnDesactivar(JButton btnDesactivar) {
-        this.btnDesactivar = btnDesactivar;
-    }
-
-    public JComboBox getCbDificultad() {
-        return cbDificultad;
-    }
-
-    public void setCbDificultad(JComboBox cbDificultad) {
-        this.cbDificultad = cbDificultad;
-    }
+    private void cbTipoPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoPreguntaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbTipoPreguntaActionPerformed
 
     public JComboBox getCbTipoPregunta() {
         return cbTipoPregunta;
@@ -303,24 +300,12 @@ public class FrGenExa extends javax.swing.JFrame {
         this.cbTipoPregunta = cbTipoPregunta;
     }
 
-    public JCheckBox getChkActiva() {
-        return chkActiva;
-    }
-
-    public void setChkActiva(JCheckBox chkActiva) {
-        this.chkActiva = chkActiva;
-    }
-
     public JTextField getTxtId() {
         return txtId;
     }
 
     public void setTxtId(JTextField txtId) {
         this.txtId = txtId;
-    }
-
-    public JLabel getLblMensaje() {
-        return lblMensaje;
     }
 
     public JTable getTbPreguntas() {
@@ -363,24 +348,18 @@ public class FrGenExa extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea TAEnunciado;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnConsultar;
-    private javax.swing.JButton btnDesactivar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JComboBox cbDificultad;
     private javax.swing.JComboBox cbTipoPregunta;
-    private javax.swing.JCheckBox chkActiva;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblCodigo;
-    private javax.swing.JLabel lblDificultad;
-    private javax.swing.JLabel lblEnunciado;
-    private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblTipoPregunta;
     private javax.swing.JTable tbPreguntas;
     private javax.swing.JTextField txtId;
