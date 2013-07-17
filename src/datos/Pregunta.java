@@ -15,18 +15,27 @@ public class Pregunta implements Serializable{
     protected String enunciado;
     protected boolean activa;
     protected TipoDificultad dificultad;
+    protected Categoría categoría;
 
-    public Pregunta(String enunciado, TipoDificultad dificultad) {
-        this.enunciado = enunciado;
-        this.dificultad = dificultad;
-        this.activa = true;
+    public Categoría getCategoría() {
+        return categoría;
     }
 
-    public Pregunta(String enunciado) {
+    public void setCategoría(Categoría categoría) {
+        this.categoría = categoría;
+    }
+
+    public Pregunta(String enunciado, TipoDificultad dificultad, boolean activa) {
+        this.enunciado = enunciado;
+        this.dificultad = dificultad;
+        this.activa = activa;
+    }
+
+    public Pregunta(String enunciado, boolean activa) {
 
         this.enunciado = enunciado;
         this.dificultad = TipoDificultad.Media;
-        this.activa = true;
+        this.activa = activa;
     }
 
     public Pregunta(int id) {

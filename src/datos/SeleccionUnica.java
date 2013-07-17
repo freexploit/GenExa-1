@@ -16,15 +16,15 @@ public class SeleccionUnica extends Pregunta{
 
     public SeleccionUnica(String enunciado, 
                           TipoDificultad dificultad,
-                          Lista opciones, int correcta ) {
-        super(enunciado, dificultad);
+                          Lista opciones, int correcta, boolean activa ) {
+        super(enunciado, dificultad, activa);
         this.opciones = opciones;
         this.correcta = correcta;
     }
 
     public SeleccionUnica(String enunciado,
-                          Lista opciones, int correcta ) {
-        super(enunciado);
+                          Lista opciones, int correcta, boolean activa ) {
+        super(enunciado, activa);
         this.opciones = opciones;
         this.correcta = correcta;
     }

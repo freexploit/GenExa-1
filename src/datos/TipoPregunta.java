@@ -8,6 +8,6 @@ package datos;
  *
  * @author M-01
  */
-public enum TipoDificultad {
-    Baja, Media, Alta
+public enum TipoPregunta {
+    Desarrollo, VerdaderoFalso, SelecciónÚnica
 }

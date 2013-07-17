@@ -5,12 +5,15 @@
 package negocio.ui;
 
 import contenedor.Lista;
+import negocio.contenedor.ListaPreguntas;
 import datos.TipoDificultad;
 import interfaz.FrGenExa;
 import java.util.ArrayList;
 import java.util.List;
 import negocio.administrador.AdmGenExa;
 import negocio.cargador.Cargador;
+
+import interfaz.DiPreguntaVF;
 
 /**
  *
@@ -24,13 +27,56 @@ public class UIGenExa {
         Cargador.cargarPreguntas(ventana.getTbPreguntas(), adm.getListaP());
     }
     
-    public void consultarPregunta(FrGenExa aThis) {
-        
+    public Object consultarPregunta(int ID)
+    {
+        return adm.consultar( ID );
     }
+    
+     public void agregarPregunta(DiPreguntaVF ventana) {
+         boolean res;
+         
+         String enunciado = ventana.getTxtEnunciado().getText().trim();
+         TipoDificultad dificultad = (TipoDificultad)ventana.getCbDificultad().getSelectedItem();
+         boolean activa = false;
+         boolean respuesta = false;
 
+         if(ventana.getCbRespuesta().getSelectedIndex() == 0){
+            respuesta = true;
+         }
+         
+         if(ventana.getChkActiva().isSelected() == true){
+            activa = true;
+         }
+         
+         res = adm.agregarPregunta(enunciado, dificultad, respuesta, activa); 
+         
+     }
+     
+    public void modificarPregunta(DiPreguntaVF ventana) {
+
+         ventana.setVisible(true);
+         boolean res;
+         int ID = Integer.parseInt(ventana.getTxtID().getText());
+         String enunciado = ventana.getTxtEnunciado().getText().trim();
+         TipoDificultad dificultad = (TipoDificultad)ventana.getCbDificultad().getSelectedItem();
+         boolean activa = false;
+         boolean respuesta = false;
+
+         if(ventana.getCbRespuesta().getSelectedIndex() == 0){
+            respuesta = true;
+         }
+         
+         if(ventana.getChkActiva().isSelected() == true){
+            activa = true;
+         }
+
+         res = adm.modificarPregunta(ID, enunciado, dificultad, respuesta, activa); 
+         
+     }
+    
     public void agregarPregunta(FrGenExa ventana) {
         
-        ventana.getLblMensaje().setText("");
+      /*  ventana.getLblMensaje().setText("");
         // extraer los campos de captura
         String enunciado = ventana.getTAEnunciado().getText().trim();
         int tipo = ventana.getCbTipoPregunta().getSelectedIndex();  //0-Desarrollo 1-SelUnica 2-F/V
@@ -58,12 +104,12 @@ public class UIGenExa {
                     break;
             }
             // publicar el resultado..
-            ventana.getLblMensaje().setText(  res ? "Pregunta Agregada" : "Pregunta No Agregada" );
+            //ventana.getLblMensaje().setText(  res ? "Pregunta Agregada" : "Pregunta No Agregada" );
             Cargador.cargarPreguntas(ventana.getTbPreguntas(), adm.getListaP());            
         }
         else
             //reportar el error
-            ventana.getLblMensaje().setText("El enunciado no debe ser vacío");
+           // ventana.getLblMensaje().setText("El enunciado no debe ser vacío");*/
     }
 
     public void modificarPregunta(FrGenExa aThis) {
@@ -74,7 +120,9 @@ public class UIGenExa {
         
     }
     
-    
+    public ListaPreguntas getListaPreguntas(){
+        return adm.getListaP();
+    }
     
     
     

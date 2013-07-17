@@ -50,21 +50,48 @@ public class AdmGenExa {
         }
         return false;
     }
+    
+    private boolean modificar(Pregunta p){
+        if (listaP.modificar(p) ){
+            try {
+                listaP.grabar("preguntas.dat");
+            } catch (FileNotFoundException ex) {
+                return false;
+            } catch (IOException ex) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
 
-    public boolean agregarPregunta(String enunciado, TipoDificultad tipoDificultad) {
-        Pregunta p =  new Pregunta(enunciado, tipoDificultad);
+    public boolean agregarPregunta(String enunciado, TipoDificultad tipoDificultad, boolean activa) {
+        Pregunta p =  new Pregunta(enunciado, tipoDificultad, activa);
         return agregar(p);
     }
 
-    public boolean agregarPregunta(String enunciado, TipoDificultad tipoDificultad, boolean respuesta) {
-        Pregunta p =  new VerdaderoFalso(enunciado, tipoDificultad, respuesta);        
+    public boolean agregarPregunta(String enunciado, TipoDificultad tipoDificultad, boolean respuesta, boolean activa) {
+        Pregunta p =  new VerdaderoFalso(enunciado, tipoDificultad, respuesta, activa);        
         return agregar(p);
     }
  
-    public boolean agregarPregunta(String enunciado, TipoDificultad tipoDificultad, 
-                                   Lista opciones, int correcta) {
-        Pregunta p =  new SeleccionUnica(enunciado, tipoDificultad, opciones, correcta);
+    public boolean agregarPregunta(String enunciado, TipoDificultad tipoDificultad, Lista opciones, int correcta, boolean activa) {
+        Pregunta p =  new SeleccionUnica(enunciado, tipoDificultad, opciones, correcta, activa);
         return agregar(p);
     }
     
+    public Object consultar(int ID){
+        return listaP.consultar(ID);
+    }
+    
+    public boolean modificarPregunta(int ID, String enunciado, TipoDificultad tipoDificultad, boolean respuesta, boolean activa) {
+        
+       VerdaderoFalso p = (VerdaderoFalso)listaP.consultar(ID);
+       p.setId(ID);
+       p.setEnunciado(enunciado);
+       p.setDificultad(tipoDificultad);
+       p.setRespuesta(respuesta);
+       p.setActiva(activa);
+       return modificar(p);
+    }
 }

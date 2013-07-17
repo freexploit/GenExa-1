@@ -14,17 +14,17 @@ public class VerdaderoFalso extends Pregunta{
     
     public VerdaderoFalso(String enunciado, 
                           TipoDificultad dificultad, 
-                          boolean respuesta) {
-        super(enunciado, dificultad);
+                          boolean respuesta, boolean activa) {
+        super(enunciado, dificultad, activa);
         this.respuesta = respuesta;
     }
 
     public VerdaderoFalso(String enunciado, 
-                          boolean respuesta ) {
-        super(enunciado);
+                          boolean respuesta, boolean activa ) {
+        super(enunciado, activa);
         this.respuesta = respuesta;
     }
-
+  
     public boolean isRespuesta() {
         return respuesta;
     }

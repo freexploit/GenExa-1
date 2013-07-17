@@ -1,0 +1,7 @@
+CARGADOR:
+cargarExámenes
+cargarTipoPregunta
+
+ENUM TIPO PREGUNTA:
+
+Desarrollo, VerdaderoFalso, SelecciónÚnica
