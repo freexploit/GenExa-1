@@ -347,6 +347,11 @@ public class FrGenExa extends javax.swing.JFrame {
 
         jMenuAbrir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         jMenuAbrir.setText("Abrir");
+        jMenuAbrir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAbrirActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuAbrir);
 
         jMenuGuardar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
@@ -509,11 +514,18 @@ public class FrGenExa extends javax.swing.JFrame {
 
     private void jMenuGuardarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGuardarPDFActionPerformed
         // TODO add your handling code here:
-        gpdf.showOpenDialog(jMenu1);
+        gpdf.showSaveDialog(jMenu1);
         File pdf = gpdf.getSelectedFile();
         ui.crearPDF(pdf);
         
     }//GEN-LAST:event_jMenuGuardarPDFActionPerformed
+
+    private void jMenuAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAbrirActionPerformed
+        // TODO add your handling code here:
+        gpdf.showOpenDialog(jMenu1);
+        File file = gpdf.getSelectedFile();
+        ui.cargarArchivo(file);
+    }//GEN-LAST:event_jMenuAbrirActionPerformed
 
     public JComboBox getCbTipoPregunta() {
         return cbTipoPregunta;

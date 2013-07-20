@@ -11,6 +11,7 @@ import interfaz.DiPreguntaSU;
 import interfaz.DiPreguntaVF;
 import interfaz.FrGenExa;
 import java.io.File;
+import javax.swing.JOptionPane;
 import negocio.administrador.AdmGenExa;
 import negocio.cargador.Cargador;
 import negocio.contenedor.ListaCategorías;
@@ -22,10 +23,12 @@ import negocio.contenedor.ListaPreguntas;
  */
 public class UIGenExa {
     private AdmGenExa adm;
+    FrGenExa ventana;
 
     public UIGenExa(FrGenExa ventana) {
         adm = new AdmGenExa();
-        Cargador.cargarPreguntas(ventana.getTbPreguntas(), adm.getListaP());
+        this.ventana=ventana;
+        Cargador.cargarPreguntas(this.ventana.getTbPreguntas(), adm.getListaP());
     }
     
     public Object consultarPregunta(int ID)
@@ -195,6 +198,20 @@ public class UIGenExa {
     public void crearPDF(File pdf) {
         
         adm.guardarPDF(pdf);
+    }
+    public void cargarArchivo(File f){
+        int tipo = adm.cargarArchivo(f);
+        switch (tipo){
+            case -1:
+                Cargador.cargarTbCategorías(this.ventana.getTbCategorías(), adm.getListaC());
+                break;
+            case 1:
+                Cargador.cargarPreguntas(this.ventana.getTbPreguntas(), adm.getListaP());
+                break;
+            default :
+                JOptionPane.showMessageDialog(ventana, "Error Archivo no Valido");
+        }
+        
     }
     
     

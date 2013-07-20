@@ -4,6 +4,7 @@
  */
 package negocio.administrador;
 
+import contenedor.Lista;
 import datos.Categoría;
 import datos.Pregunta;
 import datos.SeleccionUnica;
@@ -14,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import negocio.cargador.Cargador;
 import negocio.cargador.PdfCreator;
 import negocio.contenedor.ListaCategorías;
 import negocio.contenedor.ListaPreguntas;
@@ -30,20 +32,10 @@ public class AdmGenExa {
     
     public AdmGenExa() {
         listaP = new ListaPreguntas();
-        try {
-            listaP.cargar("preguntas.dat");
-        } 
-        catch (FileNotFoundException ex) {} 
-        catch (IOException ex) {} 
-        catch (ClassNotFoundException ex) {}
+        
         
         listaC = new ListaCategorías();
-        try {
-            listaC.cargar("categorías.dat");
-        } 
-        catch (FileNotFoundException ex) {} 
-        catch (IOException ex) {} 
-        catch (ClassNotFoundException ex) {}
+       
     }
     
     //Regresa la lista de Preguntas
@@ -222,6 +214,31 @@ public class AdmGenExa {
             Logger.getLogger(AdmGenExa.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+    public int cargarArchivo(File file){
+        try {
+            Lista l=new Lista();
+            l=l.cargar(file.getAbsolutePath());
+            if(l instanceof ListaPreguntas){
+                listaP=(ListaPreguntas) l;
+                return 1;
+            } 
+            if(l instanceof ListaCategorías){
+                listaC=(ListaCategorías) l;
+                return -1;
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AdmGenExa.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(AdmGenExa.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdmGenExa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+        
+        
+    
     }
 
 }
