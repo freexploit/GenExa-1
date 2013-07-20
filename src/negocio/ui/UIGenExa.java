@@ -10,6 +10,7 @@ import interfaz.DiPreguntaDesarrollo;
 import interfaz.DiPreguntaSU;
 import interfaz.DiPreguntaVF;
 import interfaz.FrGenExa;
+import java.io.File;
 import negocio.administrador.AdmGenExa;
 import negocio.cargador.Cargador;
 import negocio.contenedor.ListaCategorías;
@@ -189,7 +190,12 @@ public class UIGenExa {
     public ListaCategorías getListaCategorías() {
         return adm.getListaC();
     }
-    
+   
+
+    public void crearPDF(File pdf) {
+        
+        adm.guardarPDF(pdf);
+    }
     
     
 }

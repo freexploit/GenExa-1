@@ -4,6 +4,7 @@
  */
 package interfaz;
 
+import java.io.File;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -40,6 +41,7 @@ public class FrGenExa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        gpdf = new javax.swing.JFileChooser();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         JPPreguntas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -67,6 +69,14 @@ public class FrGenExa extends javax.swing.JFrame {
         txtModificarCategoría = new javax.swing.JTextField();
         sepCategoría = new javax.swing.JSeparator();
         lblNuevaCategoría = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuAbrir = new javax.swing.JMenuItem();
+        jMenuGuardar = new javax.swing.JMenuItem();
+        jMenuGuardarPDF = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+
+        gpdf.setDialogType(javax.swing.JFileChooser.SAVE_DIALOG);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GenExa");
@@ -163,7 +173,7 @@ public class FrGenExa extends javax.swing.JFrame {
                                 .addComponent(btnAgregarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(sepPregunta))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         JPPreguntasLayout.setVerticalGroup(
             JPPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +193,7 @@ public class FrGenExa extends javax.swing.JFrame {
                     .addComponent(btnAgregarPregunta)
                     .addComponent(cbTipoPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTipoPregunta))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Preguntas", JPPreguntas);
@@ -307,7 +317,7 @@ public class FrGenExa extends javax.swing.JFrame {
                         .addGroup(JPCategoríasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNuevaCategoría)
                             .addComponent(sepCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 13, Short.MAX_VALUE))
         );
         JPCategoríasLayout.setVerticalGroup(
             JPCategoríasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,10 +338,41 @@ public class FrGenExa extends javax.swing.JFrame {
                     .addComponent(btnAgregarCategoría)
                     .addComponent(txtNuevaCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNuevaCategoría))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Categorías", JPCategorías);
+
+        jMenu1.setText("File");
+
+        jMenuAbrir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuAbrir.setText("Abrir");
+        jMenu1.add(jMenuAbrir);
+
+        jMenuGuardar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuGuardar.setText("Guardar");
+        jMenuGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuGuardarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuGuardar);
+
+        jMenuGuardarPDF.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuGuardarPDF.setText("Guardar (pdf)");
+        jMenuGuardarPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuGuardarPDFActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuGuardarPDF);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -461,6 +502,19 @@ public class FrGenExa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tbCategoríasMouseClicked
 
+    private void jMenuGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGuardarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jMenuGuardarActionPerformed
+
+    private void jMenuGuardarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuGuardarPDFActionPerformed
+        // TODO add your handling code here:
+        gpdf.showOpenDialog(jMenu1);
+        File pdf = gpdf.getSelectedFile();
+        ui.crearPDF(pdf);
+        
+    }//GEN-LAST:event_jMenuGuardarPDFActionPerformed
+
     public JComboBox getCbTipoPregunta() {
         return cbTipoPregunta;
     }
@@ -560,6 +614,13 @@ public class FrGenExa extends javax.swing.JFrame {
     private javax.swing.JButton btnModificarCategoría;
     private javax.swing.JButton btnModificarPregunta;
     private javax.swing.JComboBox cbTipoPregunta;
+    private javax.swing.JFileChooser gpdf;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jMenuAbrir;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuGuardar;
+    private javax.swing.JMenuItem jMenuGuardarPDF;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

@@ -9,10 +9,15 @@ import datos.Pregunta;
 import datos.SeleccionUnica;
 import datos.TipoDificultad;
 import datos.VerdaderoFalso;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import negocio.cargador.PdfCreator;
 import negocio.contenedor.ListaCategorías;
 import negocio.contenedor.ListaPreguntas;
+import org.apache.pdfbox.exceptions.COSVisitorException;
 
 /**
  *
@@ -206,6 +211,17 @@ public class AdmGenExa {
     //Regresa la lista de Categorías
     public ListaCategorías getListaC() {
         return listaC;
+    }
+    public void guardarPDF(File file)  {
+        try {
+            PdfCreator p = new PdfCreator();
+            p.createPdf(file,listaP);
+        } catch (IOException ex) {
+            Logger.getLogger(AdmGenExa.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (COSVisitorException ex) {
+            Logger.getLogger(AdmGenExa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
 }
