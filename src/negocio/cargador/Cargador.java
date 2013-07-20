@@ -137,13 +137,13 @@ public class Cargador {
         cbCategoría.setModel(dcb);*/
     }
     
-    public static void cargarCbMCategoría(JComboBox cbCategoría, ListaCategorías lc) {
+    public static DefaultComboBoxModel cargarCbMCategoría(ListaCategorías lc) {
        DefaultComboBoxModel dcb = new DefaultComboBoxModel();
         for (int i=0; i< lc.getCantidad(); i++){
             Categoría c = (Categoría) lc.getLista().get(i);
-            dcb.addElement(c.getNombre());
+            dcb.addElement(c.toString());
         }
-        cbCategoría.setModel(dcb);
+        return (dcb);
     }
     
     public static void cargarTbCategorías(JTable table, ListaCategorías lc){
