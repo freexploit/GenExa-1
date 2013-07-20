@@ -13,7 +13,20 @@ import org.apache.pdfbox.pdmodel.PDDocument;
  */
 public class PdfCreator {
     
-    PDDocument pdf;
-    Lista list;
+   private PDDocument pdf;
+   private    Lista list;
+
+   PdfCreator(){
+      
+      pdf = new PDDocument();
+      PDPage page = new PDPage();
+      pdf.addPage(pag);
+   }
+
+    public boolean createPdf(Lista lista) {
+        this.list = lista;
+
+    }
+
     
 }
