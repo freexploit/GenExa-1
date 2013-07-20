@@ -35,26 +35,9 @@
                       <Component id="chkActiva" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="btnGuardar" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblRespuesta" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cbRespuesta" min="-2" pref="143" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblDificultad" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cbDificultad" pref="138" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Component id="btnCancelar" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="btnGuardar" min="-2" pref="205" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Component id="btnCancelar" pref="202" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="lblCategoría" min="-2" max="-2" attributes="0"/>
@@ -64,6 +47,11 @@
                       <Component id="lblID" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="txtID" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="lblDificultad" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="cbDificultad" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -94,8 +82,6 @@
               <Component id="jScrollPane1" min="-2" pref="80" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cbRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblDificultad" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbDificultad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -147,7 +133,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Verdadero o Falso"/>
+            <Property name="text" type="java.lang.String" value="Desarrollo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblPregunta">
@@ -217,21 +203,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="lblRespuesta">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Respuesta: "/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cbRespuesta">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Verdadero"/>
-            <StringItem index="1" value="Falso"/>
-          </StringArray>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="btnGuardar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

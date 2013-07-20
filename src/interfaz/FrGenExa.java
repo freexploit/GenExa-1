@@ -28,6 +28,7 @@ public class FrGenExa extends javax.swing.JFrame {
         Cargador.cargarTipoPregunta(cbTipoPregunta);
         this.setLocationRelativeTo(null);
         Cargador.cargarPreguntas(this.tbPreguntas, ui.getListaPreguntas());
+        Cargador.cargarTbCategorías(tbCategorías, ui.getListaCategorías());
     }
 
     /**
@@ -40,27 +41,41 @@ public class FrGenExa extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        JPPreguntas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbPreguntas = new javax.swing.JTable();
-        btnConsultar = new javax.swing.JButton();
-        lblCodigo = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
-        btnAgregar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        btnConsultarPregunta = new javax.swing.JButton();
+        lblCodigoPregunta = new javax.swing.JLabel();
+        txtIdPregunta = new javax.swing.JTextField();
+        btnAgregarPregunta = new javax.swing.JButton();
+        btnModificarPregunta = new javax.swing.JButton();
+        sepPregunta = new javax.swing.JSeparator();
         cbTipoPregunta = new javax.swing.JComboBox();
         lblTipoPregunta = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        JPExamen = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbExámenes = new javax.swing.JTable();
+        JPCategorías = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbCategorías = new javax.swing.JTable();
+        lblIDCategoría = new javax.swing.JLabel();
+        txtIDCategoría = new javax.swing.JTextField();
+        btnConsultarCategoría = new javax.swing.JButton();
+        btnModificarCategoría = new javax.swing.JButton();
+        btnAgregarCategoría = new javax.swing.JButton();
+        txtNuevaCategoría = new javax.swing.JTextField();
+        txtModificarCategoría = new javax.swing.JTextField();
+        sepCategoría = new javax.swing.JSeparator();
+        lblNuevaCategoría = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GenExa");
-        setBounds(new java.awt.Rectangle(0, 0, 685, 530));
+        setBounds(new java.awt.Rectangle(0, 0, 550, 360));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximizedBounds(new java.awt.Rectangle(0, 0, 685, 530));
-        setMaximumSize(new java.awt.Dimension(685, 530));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 530, 310));
+        setMaximumSize(null);
+        setMinimumSize(null);
+        setName("GenExa"); // NOI18N
         setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 
@@ -68,6 +83,9 @@ public class FrGenExa extends javax.swing.JFrame {
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(685, 530));
+
+        JPPreguntas.setMaximumSize(new java.awt.Dimension(530, 310));
+        JPPreguntas.setMinimumSize(new java.awt.Dimension(530, 310));
 
         tbPreguntas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,29 +102,29 @@ public class FrGenExa extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tbPreguntas);
 
-        btnConsultar.setBackground(new java.awt.Color(204, 204, 0));
-        btnConsultar.setText("Consultar ID");
-        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+        btnConsultarPregunta.setBackground(new java.awt.Color(204, 204, 0));
+        btnConsultarPregunta.setText("Consultar ID");
+        btnConsultarPregunta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarActionPerformed(evt);
+                btnConsultarPreguntaActionPerformed(evt);
             }
         });
 
-        lblCodigo.setText("ID");
+        lblCodigoPregunta.setText("ID");
 
-        btnAgregar.setBackground(new java.awt.Color(0, 153, 0));
-        btnAgregar.setText("Agregar Nueva");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarPregunta.setBackground(new java.awt.Color(0, 153, 0));
+        btnAgregarPregunta.setText("Agregar Nueva");
+        btnAgregarPregunta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                btnAgregarPreguntaActionPerformed(evt);
             }
         });
 
-        btnModificar.setBackground(new java.awt.Color(0, 153, 153));
-        btnModificar.setText("Modificar Seleccionada");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        btnModificarPregunta.setBackground(new java.awt.Color(0, 153, 153));
+        btnModificarPregunta.setText("Modificar Seleccionada");
+        btnModificarPregunta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                btnModificarPreguntaActionPerformed(evt);
             }
         });
 
@@ -119,61 +137,61 @@ public class FrGenExa extends javax.swing.JFrame {
 
         lblTipoPregunta.setText("Tipo de Pregunta");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblCodigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblTipoPregunta)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbTipoPregunta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout JPPreguntasLayout = new javax.swing.GroupLayout(JPPreguntas);
+        JPPreguntas.setLayout(JPPreguntasLayout);
+        JPPreguntasLayout.setHorizontalGroup(
+            JPPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPPreguntasLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(JPPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JPPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(JPPreguntasLayout.createSequentialGroup()
+                            .addGroup(JPPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(JPPreguntasLayout.createSequentialGroup()
+                                    .addComponent(lblCodigoPregunta)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtIdPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnConsultarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(JPPreguntasLayout.createSequentialGroup()
+                                    .addComponent(lblTipoPregunta)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(cbTipoPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(18, 18, 18)
+                            .addGroup(JPPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnModificarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnAgregarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(sepPregunta))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        JPPreguntasLayout.setVerticalGroup(
+            JPPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPPreguntasLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnModificar)
-                    .addComponent(btnConsultar)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCodigo))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(JPPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblCodigoPregunta)
+                    .addComponent(txtIdPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultarPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModificarPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sepPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar)
+                .addGroup(JPPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnAgregarPregunta)
                     .addComponent(cbTipoPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTipoPregunta))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Preguntas", jPanel1);
+        jTabbedPane1.addTab("Preguntas", JPPreguntas);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JPExamen.setMaximumSize(new java.awt.Dimension(530, 310));
+        JPExamen.setMinimumSize(new java.awt.Dimension(530, 310));
+
+        tbExámenes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -184,52 +202,166 @@ public class FrGenExa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tbExámenes.setMaximumSize(new java.awt.Dimension(300, 64));
+        tbExámenes.setMinimumSize(new java.awt.Dimension(300, 64));
+        jScrollPane1.setViewportView(tbExámenes);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
-                .addContainerGap())
+        javax.swing.GroupLayout JPExamenLayout = new javax.swing.GroupLayout(JPExamen);
+        JPExamen.setLayout(JPExamenLayout);
+        JPExamenLayout.setHorizontalGroup(
+            JPExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPExamenLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        JPExamenLayout.setVerticalGroup(
+            JPExamenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPExamenLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Exámenes", jPanel2);
+        jTabbedPane1.addTab("Exámenes", JPExamen);
+
+        JPCategorías.setMaximumSize(new java.awt.Dimension(530, 310));
+        JPCategorías.setMinimumSize(new java.awt.Dimension(530, 310));
+
+        tbCategorías.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbCategorías.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbCategoríasMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tbCategorías);
+
+        lblIDCategoría.setText("ID");
+
+        btnConsultarCategoría.setBackground(new java.awt.Color(204, 204, 0));
+        btnConsultarCategoría.setText("Consultar ID");
+        btnConsultarCategoría.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarCategoríaActionPerformed(evt);
+            }
+        });
+
+        btnModificarCategoría.setBackground(new java.awt.Color(0, 153, 153));
+        btnModificarCategoría.setText("Modificar Seleccionada");
+        btnModificarCategoría.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarCategoríaActionPerformed(evt);
+            }
+        });
+
+        btnAgregarCategoría.setBackground(new java.awt.Color(0, 153, 0));
+        btnAgregarCategoría.setText("Agregar Nueva");
+        btnAgregarCategoría.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarCategoríaActionPerformed(evt);
+            }
+        });
+
+        lblNuevaCategoría.setText(" Nueva Categoría:");
+
+        javax.swing.GroupLayout JPCategoríasLayout = new javax.swing.GroupLayout(JPCategorías);
+        JPCategorías.setLayout(JPCategoríasLayout);
+        JPCategoríasLayout.setHorizontalGroup(
+            JPCategoríasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPCategoríasLayout.createSequentialGroup()
+                .addGroup(JPCategoríasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JPCategoríasLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(JPCategoríasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JPCategoríasLayout.createSequentialGroup()
+                                .addGroup(JPCategoríasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(JPCategoríasLayout.createSequentialGroup()
+                                        .addComponent(lblIDCategoría)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtIDCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnConsultarCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtModificarCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtNuevaCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(JPCategoríasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JPCategoríasLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnModificarCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(JPCategoríasLayout.createSequentialGroup()
+                                        .addGap(7, 7, 7)
+                                        .addComponent(btnAgregarCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(JPCategoríasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(JPCategoríasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNuevaCategoría)
+                            .addComponent(sepCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 21, Short.MAX_VALUE))
+        );
+        JPCategoríasLayout.setVerticalGroup(
+            JPCategoríasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JPCategoríasLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(JPCategoríasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblIDCategoría)
+                    .addComponent(txtIDCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultarCategoría)
+                    .addComponent(txtModificarCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificarCategoría))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sepCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(JPCategoríasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(btnAgregarCategoría)
+                    .addComponent(txtNuevaCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNuevaCategoría))
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Categorías", JPCategorías);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+    
+    private void refrescarListaPreguntas(){
+        Cargador.cargarPreguntas(this.tbPreguntas, ui.getListaPreguntas());
+    }
+    
+    private void refrescarListaCategorías(){
+        Cargador.cargarTbCategorías(this.tbCategorías, ui.getListaCategorías());
+    }
+    
+    private void btnModificarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarPreguntaActionPerformed
 
         String tipo;
         int selected;
-        int cases = 0;
         int ID;
         
         selected = this.tbPreguntas.getSelectedRow();
@@ -238,59 +370,96 @@ public class FrGenExa extends javax.swing.JFrame {
             tipo = this.tbPreguntas.getValueAt(selected, 1).toString();
             ID = Integer.parseInt(this.tbPreguntas.getValueAt(selected, 2).toString());
 
-            if( tipo.equals("datos.Desarrollo") ){
-                cases = 0;
+            if( tipo.equals("datos.Pregunta") ){
+                    DiPreguntaDesarrollo PD = new DiPreguntaDesarrollo(this, true, ui, false);
+                    Cargador.cargarPreguntaDesarrollo(PD, ui.consultarPregunta(ID));
+                    PD.setVisible(true);
             }else{
                 if( tipo.equals("datos.VerdaderoFalso") ){
-                    cases = 1;
+                    DiPreguntaVF PVF = new DiPreguntaVF(this, true, ui, false);
+                    Cargador.cargarPreguntaVF(PVF, ui.consultarPregunta(ID));
+                    PVF.setVisible(true);
                 }else{
-                    if( tipo.equals("datos.SelecciónÚnica") ){
-                        cases = 2;
+                    if( tipo.equals("datos.SeleccionUnica") ){
+                    DiPreguntaSU SU = new DiPreguntaSU(this, true, ui, false);
+                    Cargador.cargarPreguntaSU(SU, ui.consultarPregunta(ID));
+                    SU.setVisible(true);
                     }
                 }
            }
-                
-            //Llama al cargador correspondiente
-            switch(cases){
-                case 0:
-                break;
-                case 1: DiPreguntaVF PVF = new DiPreguntaVF(this, true, ui, false);
-                        Cargador.cargarPreguntas(PVF, ui.consultarPregunta(ID));
-                        PVF.setVisible(true);
-                break;
-            }
+
         }
         
-        Cargador.cargarPreguntas(this.tbPreguntas, ui.getListaPreguntas());
-    }//GEN-LAST:event_btnModificarActionPerformed
+       refrescarListaPreguntas(); 
+    }//GEN-LAST:event_btnModificarPreguntaActionPerformed
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void btnAgregarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPreguntaActionPerformed
         int tipoPregunta = this.cbTipoPregunta.getSelectedIndex();
         
         switch(tipoPregunta){
-            case 0:
+            case 0: DiPreguntaDesarrollo PD = new DiPreguntaDesarrollo(this, true, ui, true);
+                    PD.setVisible(true);
             break;
             case 1: DiPreguntaVF PVF = new DiPreguntaVF(this, true, ui, true);
                     PVF.setVisible(true);
             break;
+            case 2: DiPreguntaSU SU = new DiPreguntaSU(this, true, ui, true);
+                    SU.setVisible(true);
+            break;
         }
         
-        Cargador.cargarPreguntas(this.tbPreguntas, ui.getListaPreguntas());
+        refrescarListaPreguntas();
         
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    }//GEN-LAST:event_btnAgregarPreguntaActionPerformed
 
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-            int ID = Integer.parseInt(this.getTxtId().getText());
-            DiPreguntaVF PVF = new DiPreguntaVF(this, true, ui, false);
-            Cargador.cargarPreguntas(PVF, ui.consultarPregunta(ID));
-            PVF.setVisible(true);
-            
-            Cargador.cargarPreguntas(this.tbPreguntas, ui.getListaPreguntas());
-    }//GEN-LAST:event_btnConsultarActionPerformed
+    private void btnConsultarPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarPreguntaActionPerformed
+        int ID = Integer.parseInt(this.getTxtId().getText());
+        int tipo = ui.consultarTipoPregunta(ID);
+        switch(tipo){
+            case 0:
+                    DiPreguntaDesarrollo PD = new DiPreguntaDesarrollo(this, true, ui, false);
+                    Cargador.cargarPreguntaDesarrollo(PD, ui.consultarPregunta(ID));
+                    PD.setVisible(true);
+                break;
+            case 1:
+                    DiPreguntaVF PVF = new DiPreguntaVF(this, true, ui, false);
+                    Cargador.cargarPreguntaVF(PVF, ui.consultarPregunta(ID));
+                    PVF.setVisible(true);
+                break;
+            case 2:
+                    DiPreguntaSU PSU = new DiPreguntaSU(this, true, ui, false);
+                    Cargador.cargarPreguntaSU(PSU, ui.consultarPregunta(ID));
+                    PSU.setVisible(true);
+                break;
+        }
+        refrescarListaPreguntas();
+    }//GEN-LAST:event_btnConsultarPreguntaActionPerformed
 
     private void cbTipoPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoPreguntaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbTipoPreguntaActionPerformed
+
+    private void btnConsultarCategoríaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarCategoríaActionPerformed
+        ui.consultarCategoría(this);
+    }//GEN-LAST:event_btnConsultarCategoríaActionPerformed
+
+    private void btnModificarCategoríaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCategoríaActionPerformed
+        ui.modificarCategoría(this);
+        refrescarListaCategorías();
+    }//GEN-LAST:event_btnModificarCategoríaActionPerformed
+
+    private void btnAgregarCategoríaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCategoríaActionPerformed
+        ui.agregarCategoría(this);
+        refrescarListaCategorías();
+    }//GEN-LAST:event_btnAgregarCategoríaActionPerformed
+
+    private void tbCategoríasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCategoríasMouseClicked
+        int i = this.tbCategorías.getSelectedRow();
+        if (i > -1){
+            this.txtIDCategoría.setText(this.tbCategorías.getValueAt(i, 0).toString());
+            this.txtModificarCategoría.setText(this.tbCategorías.getValueAt(i, 1).toString());
+        }
+    }//GEN-LAST:event_tbCategoríasMouseClicked
 
     public JComboBox getCbTipoPregunta() {
         return cbTipoPregunta;
@@ -301,17 +470,50 @@ public class FrGenExa extends javax.swing.JFrame {
     }
 
     public JTextField getTxtId() {
-        return txtId;
+        return txtIdPregunta;
     }
 
     public void setTxtId(JTextField txtId) {
-        this.txtId = txtId;
+        this.txtIdPregunta = txtId;
     }
 
     public JTable getTbPreguntas() {
         return tbPreguntas;
     }
 
+    public JTable getTbCategorías() {
+        return tbCategorías;
+    }
+
+    public void setTbCategorías(JTable tbCategorías) {
+        this.tbCategorías = tbCategorías;
+    }
+
+    public JTextField getTxtIDCategoría() {
+        return txtIDCategoría;
+    }
+
+    public void setTxtIDCategoría(JTextField txtIDCategoría) {
+        this.txtIDCategoría = txtIDCategoría;
+    }
+
+    public JTextField getTxtModificarCategoría() {
+        return txtModificarCategoría;
+    }
+
+    public void setTxtModificarCategoría(JTextField txtModificarCategoría) {
+        this.txtModificarCategoría = txtModificarCategoría;
+    }
+
+    public JTextField getTxtNuevaCategoría() {
+        return txtNuevaCategoría;
+    }
+
+    public void setTxtNuevaCategoría(JTextField txtNuevaCategoría) {
+        this.txtNuevaCategoría = txtNuevaCategoría;
+    }
+
+    
     
     /**
      * @param args the command line arguments
@@ -348,20 +550,32 @@ public class FrGenExa extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnConsultar;
-    private javax.swing.JButton btnModificar;
+    private javax.swing.JPanel JPCategorías;
+    private javax.swing.JPanel JPExamen;
+    private javax.swing.JPanel JPPreguntas;
+    private javax.swing.JButton btnAgregarCategoría;
+    private javax.swing.JButton btnAgregarPregunta;
+    private javax.swing.JButton btnConsultarCategoría;
+    private javax.swing.JButton btnConsultarPregunta;
+    private javax.swing.JButton btnModificarCategoría;
+    private javax.swing.JButton btnModificarPregunta;
     private javax.swing.JComboBox cbTipoPregunta;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblCodigoPregunta;
+    private javax.swing.JLabel lblIDCategoría;
+    private javax.swing.JLabel lblNuevaCategoría;
     private javax.swing.JLabel lblTipoPregunta;
+    private javax.swing.JSeparator sepCategoría;
+    private javax.swing.JSeparator sepPregunta;
+    private javax.swing.JTable tbCategorías;
+    private javax.swing.JTable tbExámenes;
     private javax.swing.JTable tbPreguntas;
-    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtIDCategoría;
+    private javax.swing.JTextField txtIdPregunta;
+    private javax.swing.JTextField txtModificarCategoría;
+    private javax.swing.JTextField txtNuevaCategoría;
     // End of variables declaration//GEN-END:variables
 }

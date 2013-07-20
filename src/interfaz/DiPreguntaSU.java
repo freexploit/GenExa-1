@@ -15,21 +15,21 @@ import negocio.ui.UIGenExa;
  *
  * @author LuisBrenes
  */
-public class DiPreguntaVF extends javax.swing.JDialog {
+public class DiPreguntaSU extends javax.swing.JDialog {
 
     /**
-     * Creates new form DiPreguntaVF
+     * Creates new form DiPreguntaSU
      */
     
     private UIGenExa ui;
     boolean nueva;
-    public DiPreguntaVF(java.awt.Frame parent, boolean modal) {
+    public DiPreguntaSU(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         nueva = true;
     }
     
-    public DiPreguntaVF(java.awt.Frame parent, boolean modal, UIGenExa ui, boolean nueva) {
+    public DiPreguntaSU(java.awt.Frame parent, boolean modal, UIGenExa ui, boolean nueva) {
         super(parent, modal);
         initComponents();
         Cargador.cargarDificultad(cbDificultad);
@@ -59,10 +59,6 @@ public class DiPreguntaVF extends javax.swing.JDialog {
         return cbDificultad;
     }
 
-    public JComboBox getCbRespuesta() {
-        return cbRespuesta;
-    }
-
     public JCheckBox getChkActiva() {
         return chkActiva;
     }
@@ -79,16 +75,52 @@ public class DiPreguntaVF extends javax.swing.JDialog {
         this.cbDificultad.setSelectedIndex(dificultad);
     }
 
-    public void setCbRespuesta(int respuesta) {
-        this.cbRespuesta.setSelectedIndex(respuesta);
-    }
-
     public void setChkActiva(boolean activa) {
         this.chkActiva.setSelected(activa);
     }
 
     public void setTxtEnunciado(String enunciado) {
         this.txtEnunciado.setText(enunciado);
+    }
+
+    public JComboBox getCbRespuesta() {
+        return cbRespuesta;
+    }
+
+    public void setCbRespuesta(JComboBox cbRespuesta) {
+        this.cbRespuesta = cbRespuesta;
+    }
+
+    public JTextField getTxtOpcion1() {
+        return txtOpcion1;
+    }
+
+    public void setTxtOpcion1(JTextField txtOpcion1) {
+        this.txtOpcion1 = txtOpcion1;
+    }
+
+    public JTextField getTxtOpcion2() {
+        return txtOpcion2;
+    }
+
+    public void setTxtOpcion2(JTextField txtOpcion2) {
+        this.txtOpcion2 = txtOpcion2;
+    }
+
+    public JTextField getTxtOpcion3() {
+        return txtOpcion3;
+    }
+
+    public void setTxtOpcion3(JTextField txtOpcion3) {
+        this.txtOpcion3 = txtOpcion3;
+    }
+
+    public JTextField getTxtOpcion4() {
+        return txtOpcion4;
+    }
+
+    public void setTxtOpcion4(JTextField txtOpcion4) {
+        this.txtOpcion4 = txtOpcion4;
     }
    
     
@@ -113,12 +145,20 @@ public class DiPreguntaVF extends javax.swing.JDialog {
         lblEnunciado = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtEnunciado = new javax.swing.JTextArea();
-        lblRespuesta = new javax.swing.JLabel();
-        cbRespuesta = new javax.swing.JComboBox();
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         lblCategoría = new javax.swing.JLabel();
         cbCategoría = new javax.swing.JComboBox();
+        lblRespuesta = new javax.swing.JLabel();
+        cbRespuesta = new javax.swing.JComboBox();
+        lblOpción1 = new javax.swing.JLabel();
+        lblOpción2 = new javax.swing.JLabel();
+        lblOpción3 = new javax.swing.JLabel();
+        lblOpción4 = new javax.swing.JLabel();
+        txtOpcion1 = new javax.swing.JTextField();
+        txtOpcion2 = new javax.swing.JTextField();
+        txtOpcion3 = new javax.swing.JTextField();
+        txtOpcion4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -126,7 +166,7 @@ public class DiPreguntaVF extends javax.swing.JDialog {
 
         lblTipoPregunta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblTipoPregunta.setForeground(new java.awt.Color(255, 255, 255));
-        lblTipoPregunta.setText("Verdadero o Falso");
+        lblTipoPregunta.setText("Selección Única");
 
         lblPregunta.setForeground(new java.awt.Color(204, 204, 204));
         lblPregunta.setText("Pregunta");
@@ -171,10 +211,6 @@ public class DiPreguntaVF extends javax.swing.JDialog {
         txtEnunciado.setRows(5);
         jScrollPane1.setViewportView(txtEnunciado);
 
-        lblRespuesta.setText("Respuesta: ");
-
-        cbRespuesta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Verdadero", "Falso" }));
-
         btnGuardar.setBackground(new java.awt.Color(0, 153, 0));
         btnGuardar.setText("Guardar y Volver");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -195,6 +231,18 @@ public class DiPreguntaVF extends javax.swing.JDialog {
 
         cbCategoría.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        lblRespuesta.setText("Respuesta Correcta:");
+
+        cbRespuesta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4" }));
+
+        lblOpción1.setText("Opción 1:");
+
+        lblOpción2.setText("Opción 2:");
+
+        lblOpción3.setText("Opción 3:");
+
+        lblOpción4.setText("Opción 4:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -211,29 +259,45 @@ public class DiPreguntaVF extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addComponent(chkActiva))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblRespuesta)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(lblDificultad)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbDificultad, 0, 138, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(lblCategoría)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbCategoría, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtID)))
+                        .addComponent(txtID))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblRespuesta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblDificultad)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbDificultad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblOpción4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtOpcion4, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblOpción1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtOpcion1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblOpción2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtOpcion2, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblOpción3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtOpcion3, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -254,14 +318,30 @@ public class DiPreguntaVF extends javax.swing.JDialog {
                     .addComponent(lblActiva)
                     .addComponent(lblEnunciado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(txtOpcion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblOpción1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(txtOpcion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblOpción2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(txtOpcion3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblOpción3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(txtOpcion4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblOpción4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRespuesta)
-                    .addComponent(cbRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDificultad)
-                    .addComponent(cbDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                    .addComponent(lblRespuesta)
+                    .addComponent(cbRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnCancelar))
@@ -308,20 +388,20 @@ public class DiPreguntaVF extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DiPreguntaVF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DiPreguntaSU.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DiPreguntaVF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DiPreguntaSU.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DiPreguntaVF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            //java.util.logging.Logger.getLogger(DiPreguntaSU.class.getName()lblRespuestaava.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DiPreguntaVF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DiPreguntaSU.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DiPreguntaVF dialog = new DiPreguntaVF(new javax.swing.JFrame(), true);
+                DiPreguntaSU dialog = new DiPreguntaSU(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -346,10 +426,18 @@ public class DiPreguntaVF extends javax.swing.JDialog {
     private javax.swing.JLabel lblDificultad;
     private javax.swing.JLabel lblEnunciado;
     private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblOpción1;
+    private javax.swing.JLabel lblOpción2;
+    private javax.swing.JLabel lblOpción3;
+    private javax.swing.JLabel lblOpción4;
     private javax.swing.JLabel lblPregunta;
     private javax.swing.JLabel lblRespuesta;
     private javax.swing.JLabel lblTipoPregunta;
     private javax.swing.JTextArea txtEnunciado;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtOpcion1;
+    private javax.swing.JTextField txtOpcion2;
+    private javax.swing.JTextField txtOpcion3;
+    private javax.swing.JTextField txtOpcion4;
     // End of variables declaration//GEN-END:variables
 }

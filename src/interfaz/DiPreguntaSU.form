@@ -35,28 +35,6 @@
                       <Component id="chkActiva" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="btnGuardar" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblRespuesta" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cbRespuesta" min="-2" pref="143" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblDificultad" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="cbDificultad" pref="138" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Component id="btnCancelar" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <Component id="lblCategoría" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="cbCategoría" min="-2" pref="186" max="-2" attributes="0"/>
@@ -64,6 +42,48 @@
                       <Component id="lblID" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="txtID" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblRespuesta" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="cbRespuesta" min="-2" pref="95" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="btnGuardar" min="-2" pref="205" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Component id="btnCancelar" pref="202" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblDificultad" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="cbDificultad" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="lblOpción4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtOpcion4" pref="363" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblOpción1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtOpcion1" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblOpción2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtOpcion2" pref="363" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblOpción3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtOpcion3" pref="363" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -73,9 +93,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="cbCategoría" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -84,27 +104,47 @@
                       <Component id="lblID" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
                   <Component id="chkActiva" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="lblActiva" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="lblEnunciado" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="82" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="txtOpcion1" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOpción1" alignment="2" min="-2" pref="14" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="txtOpcion2" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOpción2" alignment="2" min="-2" pref="14" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="txtOpcion3" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOpción3" alignment="2" min="-2" pref="14" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="80" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="txtOpcion4" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblOpción4" alignment="2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cbDificultad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblDificultad" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cbRespuesta" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblDificultad" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cbDificultad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="15" max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -147,7 +187,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Verdadero o Falso"/>
+            <Property name="text" type="java.lang.String" value="Selecci&#xf3;n &#xda;nica"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblPregunta">
@@ -217,21 +257,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="lblRespuesta">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Respuesta: "/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cbRespuesta">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Verdadero"/>
-            <StringItem index="1" value="Falso"/>
-          </StringArray>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="btnGuardar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -270,6 +295,51 @@
           </StringArray>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblRespuesta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Respuesta Correcta:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbRespuesta">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="1"/>
+            <StringItem index="1" value="2"/>
+            <StringItem index="2" value="3"/>
+            <StringItem index="3" value="4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOpci&#xf3;n1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Opci&#xf3;n 1:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOpci&#xf3;n2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Opci&#xf3;n 2:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOpci&#xf3;n3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Opci&#xf3;n 3:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblOpci&#xf3;n4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Opci&#xf3;n 4:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtOpcion1">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtOpcion2">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtOpcion3">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtOpcion4">
     </Component>
   </SubComponents>
 </Form>
