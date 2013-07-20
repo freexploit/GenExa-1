@@ -29,6 +29,10 @@ public class Categoría implements Serializable{
         this.id = ID;
     }
     
+    public Categoría(int ID) {
+        this.id = ID;
+    }
+    
     public int getID() {
         return id;
     }
