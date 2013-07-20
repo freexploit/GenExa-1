@@ -4,17 +4,24 @@
  */
 package datos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author LuisBrenes
  */
-public class Categoría {
+public class Categoría implements Serializable{
     
     private int id;
     private String nombre;
 
     public Categoría(int ID, String nombre) {
         this.id = ID;
+        this.nombre = nombre;
+    }
+    
+    public Categoría(String nombre) {
+        this.id = -1;
         this.nombre = nombre;
     }
     
@@ -38,6 +45,23 @@ public class Categoría {
         this.nombre = nombre;
     }
     
+    @Override
+    public String toString(){
+        return (String.valueOf(this.getID()) +"-"+ this.getNombre() );
+    }
     
-    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj instanceof Categoría) {
+            final Categoría other = (Categoría) obj;
+            if (this.id != other.id) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
 }

@@ -15,7 +15,7 @@ import negocio.ui.UIGenExa;
  *
  * @author LuisBrenes
  */
-public class DiPreguntaVF extends javax.swing.JDialog {
+public class DiPreguntaDesarrollo extends javax.swing.JDialog {
 
     /**
      * Creates new form DiPreguntaVF
@@ -23,13 +23,13 @@ public class DiPreguntaVF extends javax.swing.JDialog {
     
     private UIGenExa ui;
     boolean nueva;
-    public DiPreguntaVF(java.awt.Frame parent, boolean modal) {
+    public DiPreguntaDesarrollo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         nueva = true;
     }
     
-    public DiPreguntaVF(java.awt.Frame parent, boolean modal, UIGenExa ui, boolean nueva) {
+    public DiPreguntaDesarrollo(java.awt.Frame parent, boolean modal, UIGenExa ui, boolean nueva) {
         super(parent, modal);
         initComponents();
         Cargador.cargarDificultad(cbDificultad);
@@ -59,10 +59,6 @@ public class DiPreguntaVF extends javax.swing.JDialog {
         return cbDificultad;
     }
 
-    public JComboBox getCbRespuesta() {
-        return cbRespuesta;
-    }
-
     public JCheckBox getChkActiva() {
         return chkActiva;
     }
@@ -77,10 +73,6 @@ public class DiPreguntaVF extends javax.swing.JDialog {
 
     public void setCbDificultad(int dificultad) {
         this.cbDificultad.setSelectedIndex(dificultad);
-    }
-
-    public void setCbRespuesta(int respuesta) {
-        this.cbRespuesta.setSelectedIndex(respuesta);
     }
 
     public void setChkActiva(boolean activa) {
@@ -113,8 +105,6 @@ public class DiPreguntaVF extends javax.swing.JDialog {
         lblEnunciado = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtEnunciado = new javax.swing.JTextArea();
-        lblRespuesta = new javax.swing.JLabel();
-        cbRespuesta = new javax.swing.JComboBox();
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         lblCategoría = new javax.swing.JLabel();
@@ -126,7 +116,7 @@ public class DiPreguntaVF extends javax.swing.JDialog {
 
         lblTipoPregunta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblTipoPregunta.setForeground(new java.awt.Color(255, 255, 255));
-        lblTipoPregunta.setText("Verdadero o Falso");
+        lblTipoPregunta.setText("Desarrollo");
 
         lblPregunta.setForeground(new java.awt.Color(204, 204, 204));
         lblPregunta.setText("Pregunta");
@@ -171,10 +161,6 @@ public class DiPreguntaVF extends javax.swing.JDialog {
         txtEnunciado.setRows(5);
         jScrollPane1.setViewportView(txtEnunciado);
 
-        lblRespuesta.setText("Respuesta: ");
-
-        cbRespuesta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Verdadero", "Falso" }));
-
         btnGuardar.setBackground(new java.awt.Color(0, 153, 0));
         btnGuardar.setText("Guardar y Volver");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -211,21 +197,9 @@ public class DiPreguntaVF extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addComponent(chkActiva))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblRespuesta)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(lblDificultad)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbDificultad, 0, 138, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblCategoría)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -233,7 +207,11 @@ public class DiPreguntaVF extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtID)))
+                        .addComponent(txtID))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblDificultad)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbDificultad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -257,8 +235,6 @@ public class DiPreguntaVF extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRespuesta)
-                    .addComponent(cbRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDificultad)
                     .addComponent(cbDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
@@ -308,20 +284,20 @@ public class DiPreguntaVF extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DiPreguntaVF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DiPreguntaDesarrollo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DiPreguntaVF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DiPreguntaDesarrollo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DiPreguntaVF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DiPreguntaDesarrollo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DiPreguntaVF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DiPreguntaDesarrollo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DiPreguntaVF dialog = new DiPreguntaVF(new javax.swing.JFrame(), true);
+                DiPreguntaDesarrollo dialog = new DiPreguntaDesarrollo(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -337,7 +313,6 @@ public class DiPreguntaVF extends javax.swing.JDialog {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox cbCategoría;
     private javax.swing.JComboBox cbDificultad;
-    private javax.swing.JComboBox cbRespuesta;
     private javax.swing.JCheckBox chkActiva;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -347,7 +322,6 @@ public class DiPreguntaVF extends javax.swing.JDialog {
     private javax.swing.JLabel lblEnunciado;
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblPregunta;
-    private javax.swing.JLabel lblRespuesta;
     private javax.swing.JLabel lblTipoPregunta;
     private javax.swing.JTextArea txtEnunciado;
     private javax.swing.JTextField txtID;

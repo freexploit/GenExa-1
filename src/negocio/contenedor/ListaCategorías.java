@@ -12,8 +12,8 @@ import java.io.Serializable;
  *
  * @author M-01
  */
-public class ListaCategorias extends Lista {
-
+public class ListaCategorías extends Lista {
+    
     /**
      * agregar recibe una pregunta sin su id
      * @param obj
@@ -21,9 +21,9 @@ public class ListaCategorias extends Lista {
      */
     @Override
     public boolean agregar(Object obj) {
-        Categoría p = (Categoría)obj;
-        p.setID( getCantidad()+1);
-        return super.agregar(p);
+        Categoría c = (Categoría)obj;
+        c.setID( getCantidad()+1);
+        return super.agregar(c);
     }
 
     /**
@@ -35,9 +35,9 @@ public class ListaCategorias extends Lista {
     public Object consultar(Object obj) {
         Integer id = (Integer)obj;
         
-        Categoría p = new Categoría(id);
+        Categoría c = new Categoría(id);
         
-        return super.consultar(p);
+        return super.consultar(c);
     }
 
      @Override
@@ -47,7 +47,6 @@ public class ListaCategorias extends Lista {
         return res;        
 
     }
-    
     
     
     
